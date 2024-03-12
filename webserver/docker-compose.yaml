@@ -1,0 +1,10 @@
+version: "3"
+services:
+  webserver:
+    image: nginx:latest
+    restart: always
+    ports:
+      - 8080:80
+    volumes:
+      - /home/sandhya/webserver:/usr/share/nginx/html
+
