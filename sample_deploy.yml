@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: deployment
+metadata:
+  name: my_deployment
+sepc:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my_app
+  templete:
+    metadata:
+      labels:
+        app: my_app
+    spec:
+      containers:
+      - name: my_container
+        image: nginx:latest
+        ports:
+        - containerport: 9050
+
