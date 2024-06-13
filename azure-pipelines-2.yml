@@ -4,8 +4,6 @@ stages:
   - stage: stageA
     jobs:
       - job: jobA
-        steps:
-          - task: Docker@2
              
   - stage: stageB
     condition: succeeded('A') 
