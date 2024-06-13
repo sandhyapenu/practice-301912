@@ -4,9 +4,10 @@ stages:
   - stage: stageA
     jobs:
       - job: jobA
-             
+    displayName: "condition type pipeline in stageA"        
   - stage: stageB
     condition: succeeded('A') 
     jobs:
       - job: jobB 
-
+    displayName: "condition type pipeline in stageB" 
+  
