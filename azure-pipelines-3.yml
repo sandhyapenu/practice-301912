@@ -1,6 +1,8 @@
 pool:
   name: default
-
+  demands:
+    - maven
+    - Agent.Version -equals 2.163.1
 stages:
   - stage: checkoutcode
     jobs: 
