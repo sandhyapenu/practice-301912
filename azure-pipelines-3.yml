@@ -1,0 +1,23 @@
+pool:
+  name: default
+
+stages:
+  - stage: checkoutcode
+    jobs: 
+      - job: 'checkoutgitcode'
+        steps:
+          - checkout: self
+  - stage: 'Build'
+    jobs:
+      - job: 'Buildjob'
+        steps:
+          - task: Maven@4
+            inputs:
+              mavenPomFile: 'pom.xml'
+              goals: 'install'
+              publishJUnitResults: false
+              javaHomeOption: 'JDKVersion'
+              mavenVersionOption: 'Default'
+              mavenAuthenticateFeed: false
+              effectivePomSkip: false
+              sonarQubeRunAnalysis: false
