@@ -6,7 +6,7 @@ stages:
       - job: jobA
              
   - stage: stageB
-    condition: failed() 
+    condition: succeeded('A') 
     jobs:
       - job: jobB 
 
