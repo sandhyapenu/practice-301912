@@ -7,14 +7,24 @@ stages:
   - stage: checkoutcode
     jobs: 
       - job: 'checkoutgitcode'
-        steps:
+    pool:
+      name: Default
+      demands:
+            - maven
+            - Agent.Version -equals 2.164.1
+      steps:
           - checkout: self
   - stage: 'Build'
     jobs:
       - job: 'Buildjob'
-        steps:
-          - task: Maven@4
-            inputs:
+    pool:
+      name: Default
+      demands:
+        - maven
+        - Agent.Version -equals 2.164.1
+      steps:
+        - task: Maven@4
+          inputs:
               mavenPomFile: 'pom.xml'
               goals: 'install'
               publishJUnitResults: false
