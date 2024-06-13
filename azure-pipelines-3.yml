@@ -10,8 +10,8 @@ stages:
     pool:
       name: Default
       demands:
-            - maven
-            - Agent.Version -equals 2.164.1
+        - maven
+        - Agent.Version -equals 2.164.1
       steps:
           - checkout: self
   - stage: 'Build'
