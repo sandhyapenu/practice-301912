@@ -8,7 +8,7 @@ stages:
           - task: Docker@2
              
   - stage: stageB
-    condition: failed() 
+    condition: succeeded('A') 
     jobs:
       - job: jobB 
 
